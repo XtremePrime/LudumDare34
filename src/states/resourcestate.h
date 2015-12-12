@@ -17,6 +17,7 @@ class ResourceState : public State
 {
 private:
 	sf::Text skill_text;
+	sf::Text skill_lvl_text;
 	std::string skill_name;
 	float skill_xp;
 	SkillEnum skill_type;

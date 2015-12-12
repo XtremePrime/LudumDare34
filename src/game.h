@@ -6,8 +6,10 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <SFML/Audio.hpp>
 
 #include "gameobject.hpp"
+#include "savefile.hpp"
 
 class State;
 class Game
@@ -24,6 +26,8 @@ private:
 	sf::ContextSettings settings;
 	sf::View view;
 	sf::Font font;
+	sf::Music music;
+	SaveFile savefile;
 
 	void init();
 	void update(sf::Time);
@@ -44,6 +48,7 @@ public:
 	int get_height() { return this->GAME_HEIGHT/this->SCALE; }
 	float get_scale(){ return this->SCALE; }
 	sf::Font& get_font() { return this->font; }
+	SaveFile& get_save() { return this->savefile; }
 };
 
 #endif // GAME_H

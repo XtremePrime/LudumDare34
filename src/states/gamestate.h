@@ -8,6 +8,7 @@
 #include "../player.h"
 #include "../resource.hpp"
 #include "../skill.hpp"
+#include "../gui/notification.hpp"
 
 class GameState : public State
 {
@@ -20,6 +21,15 @@ private:
     Button button;
     Player* player;
     Resource* resource;
+    sf::Sound snd; sf::SoundBuffer bfr;
+
+    SkillEnum skill_type;
+
+    sf::Font font;
+    sf::Text res_text;
+    sf::Text stats_text;
+
+    std::vector<Notification*> notifications;
 protected:
 	static GameState* _instance;
 	GameState(){}

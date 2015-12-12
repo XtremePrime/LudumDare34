@@ -46,10 +46,12 @@
 		<Unit filename="src/game.h" />
 		<Unit filename="src/gameobject.hpp" />
 		<Unit filename="src/gui/droplet.hpp" />
+		<Unit filename="src/gui/notification.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/player.h" />
 		<Unit filename="src/resource.hpp" />
+		<Unit filename="src/savefile.hpp" />
 		<Unit filename="src/skill.cpp" />
 		<Unit filename="src/skill.hpp" />
 		<Unit filename="src/states/gamestate.cpp" />

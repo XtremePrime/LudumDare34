@@ -7,6 +7,7 @@
 void Game::init()
 {
 	//- Init GameObject stuff
+	savefile.init(gameobject.player);
 
 	//- Init context settings
 	settings.antialiasingLevel = 0;
@@ -23,12 +24,16 @@ void Game::init()
 	srand(time(NULL));
 
 
-	this->font.loadFromFile("res/fonts/orange kid.ttf");
+	this->font.loadFromFile("res/fonts/runescape_uf.ttf");
 	//- Load favicon
 	// #define FAVICON_SIZE 32
 	// icon.loadFromFile("res/screen/logo.png");
 	// window.setIcon(73,54,icon.getPixelsPtr());
 	// #undef FAVICON_SIZE
+
+	music.openFromFile("res/music/POL-boring-cavern-short.wav");
+	music.setLoop(true);
+	//music.play();
 }
 
 void Game::handle_events(sf::Event ev)

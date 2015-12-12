@@ -29,6 +29,7 @@ private:
 	sf::Texture txr;
 	sf::Sprite sprite;
 	float xp;
+	int req_lvl;
 	// std::string xp_str;
 	sf::Text name_text;
 	sf::Text given_xp_text;
@@ -38,15 +39,16 @@ private:
 	Source src;
 public:
 	Resource(){}
-	Resource(std::string name="N/A", float xp=1.0, std::string filename="null.png", std::string src_filename="null.png", int x=0, int y=0)
+	Resource(std::string name="N/A", int req_lvl=1, float xp=1.0, std::string filename="null.png", std::string src_filename="null.png", int x=0, int y=0)
 	{
-		init(name, xp, filename, src_filename, x, y);
+		init(name, xp, req_lvl, filename, src_filename, x, y);
 	}
 
-	void init(std::string name="N/A", float xp=1.0, std::string filename="null.png", std::string src_filename="null.png", int x=0, int y=0)
+	void init(std::string name="N/A", int req_lvl=1, float xp=1.0, std::string filename="null.png", std::string src_filename="null.png", int x=0, int y=0)
 	{
 		this->name = name;
 		this->xp = xp;
+		this->req_lvl = req_lvl;
 		txr.loadFromFile("res/resources/"+filename);
 		sprite.setTexture(txr);
 		sprite.setPosition(sf::Vector2f(x, y));
@@ -55,7 +57,7 @@ public:
 
 		std::stringstream ss;
 		ss << xp << "xp";
-        font.loadFromFile("res/fonts/orange kid.ttf");
+        font.loadFromFile("res/fonts/runescape_uf.ttf");
         name_text.setFont(font);
         name_text.setString(name);
         name_text.setCharacterSize(15);
@@ -67,10 +69,11 @@ public:
 
     	sf::FloatRect fr = name_text.getLocalBounds();
 		name_text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
-		name_text.setPosition(sf::Vector2f(x+16, y+16));
+		name_text.setPosition(sf::Vector2f(x+16, y+32+10));
     	sf::FloatRect fr2 = given_xp_text.getLocalBounds();
 		given_xp_text.setOrigin(fr2.left + fr2.width/2.0f, fr2.top  + fr2.height/2.0f);
-		given_xp_text.setPosition(sf::Vector2f(x+16, y+32));
+		given_xp_text.setPosition(sf::Vector2f(x+16, y+32+25));
+
 		sf::FloatRect fr3 = src.sprite.getLocalBounds();
 		src.sprite.setOrigin(fr3.left + fr3.width/2.0f, fr3.top  + fr3.height/2.0f);
 		src.sprite.setPosition(sf::Vector2f(430/2, 320/2));
@@ -91,6 +94,7 @@ public:
 	float get_xp(){ return this->xp; }
 	sf::Texture& get_texture(){ return this->txr; }
 	sf::Sprite& get_sprite() { return this->sprite; }
+	int get_req_lvl(){ return this->req_lvl; }
 };
 
 #endif // RESOURCE_H
