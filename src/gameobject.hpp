@@ -6,8 +6,7 @@
 class GameObject
 {
 public:
-	//- Level objects
-	std::string level_name = "devtest";
+	Player* player;
 
 	//- Options objects
 	int width = 860, height = 640;

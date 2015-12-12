@@ -1,6 +1,8 @@
 #include "game.h"
 #include "states/state.h"
 #include "states/gamestate.h"
+#include "states/skillstate.h"
+#include "states/resourcestate.h"
 
 void Game::init()
 {
@@ -9,10 +11,13 @@ void Game::init()
 	//- Init context settings
 	settings.antialiasingLevel = 8;
 
+	view.reset(sf::FloatRect(0, 0, GAME_WIDTH/SCALE, GAME_HEIGHT/SCALE));
+
 	//- Init Win Window
-	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Untitled Game", sf::Style::Titlebar | sf::Style::Close, settings);
+	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "SkillClicker - By XtremePrime & Popica23", sf::Style::Titlebar | sf::Style::Close, settings);
 	this->window.setVerticalSyncEnabled(true);
 	this->window.setKeyRepeatEnabled(false);
+	this->window.setView(view);
 
 	//- Handle RNG
 	srand(time(NULL));
@@ -99,7 +104,7 @@ void Game::pop_state()
 void Game::run()
 {
 	init();
-	push_state(GameState::instance());
+	push_state(SkillState::instance());
 
 	while(is_running)
 	{

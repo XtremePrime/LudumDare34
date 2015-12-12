@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include <SFML/Audio.hpp>
 #include "game.h"
+#include <limits>
 
 int main(int argc, char** argv)
 {
