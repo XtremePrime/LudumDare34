@@ -15,7 +15,7 @@ class Game
 private:
 	sf::RenderWindow window;
 	const int GAME_WIDTH = 860, GAME_HEIGHT = 640;
-	const float SCALE = 4.0;
+	const float SCALE = 2.0;
 	bool is_running = true;
 	sf::Clock clock;
 	std::vector<State*> state_stack;
@@ -23,6 +23,7 @@ private:
 	GameObject gameobject;
 	sf::ContextSettings settings;
 	sf::View view;
+	sf::Font font;
 
 	void init();
 	void update(sf::Time);
@@ -39,9 +40,10 @@ public:
 	sf::RenderWindow* get_window() { return &window; }
 	GameObject* get_gameobject() { return &gameobject; }
 	std::vector<State*> get_state_stack() { return state_stack; }
-	int get_width() { return this->GAME_WIDTH; }
-	int get_height() { return this->GAME_HEIGHT; }
+	int get_width() { return this->GAME_WIDTH/this->SCALE; }
+	int get_height() { return this->GAME_HEIGHT/this->SCALE; }
 	float get_scale(){ return this->SCALE; }
+	sf::Font& get_font() { return this->font; }
 };
 
 #endif // GAME_H

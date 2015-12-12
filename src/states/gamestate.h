@@ -5,11 +5,21 @@
 #include <SFML/Audio.hpp>
 #include <cstdlib>
 #include "state.h"
+#include "../player.h"
+#include "../resource.hpp"
+#include "../skill.hpp"
 
 class GameState : public State
 {
 private:
+	int width, height;
     bool paused = false;
+    float xp;
+    std::string skill_name;
+    std::string resource_name;
+    Button button;
+    Player* player;
+    Resource* resource;
 protected:
 	static GameState* _instance;
 	GameState(){}

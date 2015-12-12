@@ -41,7 +41,24 @@
 		<Linker>
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="src/button.hpp" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/game.h" />
+		<Unit filename="src/gameobject.hpp" />
+		<Unit filename="src/gui/droplet.hpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/player.cpp" />
+		<Unit filename="src/player.h" />
+		<Unit filename="src/resource.hpp" />
+		<Unit filename="src/skill.cpp" />
+		<Unit filename="src/skill.hpp" />
+		<Unit filename="src/states/gamestate.cpp" />
+		<Unit filename="src/states/gamestate.h" />
+		<Unit filename="src/states/resourcestate.cpp" />
+		<Unit filename="src/states/resourcestate.h" />
+		<Unit filename="src/states/skillstate.cpp" />
+		<Unit filename="src/states/skillstate.h" />
+		<Unit filename="src/states/state.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

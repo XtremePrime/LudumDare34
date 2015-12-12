@@ -9,7 +9,7 @@ void Game::init()
 	//- Init GameObject stuff
 
 	//- Init context settings
-	settings.antialiasingLevel = 8;
+	settings.antialiasingLevel = 0;
 
 	view.reset(sf::FloatRect(0, 0, GAME_WIDTH/SCALE, GAME_HEIGHT/SCALE));
 
@@ -22,6 +22,8 @@ void Game::init()
 	//- Handle RNG
 	srand(time(NULL));
 
+
+	this->font.loadFromFile("res/fonts/orange kid.ttf");
 	//- Load favicon
 	// #define FAVICON_SIZE 32
 	// icon.loadFromFile("res/screen/logo.png");
