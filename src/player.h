@@ -20,6 +20,9 @@ public:
 	void init();
 
 	void calculate_total();
+	bool check_levelup(SkillEnum);
+	void levelup(SkillEnum);
+	float get_xp_at_lvl(int);
 
 	void update(sf::Time dt);
 
@@ -27,6 +30,7 @@ public:
 	float get_total_xp(){ return this->total_xp; }
 	int get_total_lvl() { return this->total_lvl; }
 	float get_xp(SkillEnum sk){ return this->skill_xp[sk]; }
+	int get_lvl(SkillEnum sk){ return this->skill_lvl[sk]; }
 };
 
 #endif // PLAYER_H

@@ -7,7 +7,7 @@
 #include "button.hpp"
 
 enum class SkillEnum{
-	NA, MINING, FISHING
+	NA, MINING, FISHING, WOODCUTTING
 };
 
 class Skill
@@ -39,7 +39,7 @@ public:
 		this->y = y;
 		sprite.setPosition(sf::Vector2f(x, y));
 
-        font.loadFromFile("res/fonts/orange kid.ttf");
+        font.loadFromFile("res/fonts/runescape_uf.ttf");
         text.setFont(font);
         text.setString(name);
         text.setCharacterSize(15);
@@ -47,7 +47,7 @@ public:
 
     	sf::FloatRect fr = text.getLocalBounds();
 		text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
-		text.setPosition(sf::Vector2f(x+16, y+16));
+		text.setPosition(sf::Vector2f(x+16, y+32+10));
 
 		button.init(x, y, size, size);
 	}

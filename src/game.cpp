@@ -23,7 +23,7 @@ void Game::init()
 	srand(time(NULL));
 
 
-	this->font.loadFromFile("res/fonts/orange kid.ttf");
+	this->font.loadFromFile("res/fonts/runescape_uf.ttf");
 	//- Load favicon
 	// #define FAVICON_SIZE 32
 	// icon.loadFromFile("res/screen/logo.png");

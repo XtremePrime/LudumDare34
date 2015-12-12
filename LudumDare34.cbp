@@ -46,6 +46,7 @@
 		<Unit filename="src/game.h" />
 		<Unit filename="src/gameobject.hpp" />
 		<Unit filename="src/gui/droplet.hpp" />
+		<Unit filename="src/gui/notification.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/player.h" />
