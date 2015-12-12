@@ -31,6 +31,9 @@ public:
 	int get_total_lvl() { return this->total_lvl; }
 	float get_xp(SkillEnum sk){ return this->skill_xp[sk]; }
 	int get_lvl(SkillEnum sk){ return this->skill_lvl[sk]; }
+	void set_xp(SkillEnum sk, float xp){ this->skill_xp[sk] = xp; }
+	void set_lvl(SkillEnum sk, int lvl){ this->skill_lvl[sk] = lvl; }
+
 };
 
 #endif // PLAYER_H

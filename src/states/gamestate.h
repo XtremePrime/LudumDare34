@@ -21,6 +21,13 @@ private:
     Button button;
     Player* player;
     Resource* resource;
+    sf::Sound snd; sf::SoundBuffer bfr;
+
+    SkillEnum skill_type;
+
+    sf::Font font;
+    sf::Text res_text;
+    sf::Text stats_text;
 
     std::vector<Notification*> notifications;
 protected:

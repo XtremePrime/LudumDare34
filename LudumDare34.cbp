@@ -51,6 +51,7 @@
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/player.h" />
 		<Unit filename="src/resource.hpp" />
+		<Unit filename="src/savefile.hpp" />
 		<Unit filename="src/skill.cpp" />
 		<Unit filename="src/skill.hpp" />
 		<Unit filename="src/states/gamestate.cpp" />

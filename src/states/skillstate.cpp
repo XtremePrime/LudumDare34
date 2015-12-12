@@ -140,8 +140,8 @@ void SkillState::init_skills()
 {
 	#define add(x) skills.push_back(x)
 	int xx = 10, yy = 10;
-	add(new Skill(SkillEnum::MINING, "Mining", "pickaxe.png", xx, 10));
-	add(new Skill(SkillEnum::FISHING, "Fishing", "fishing_rod.png", xx+=32+32, 10));
-	add(new Skill(SkillEnum::WOODCUTTING, "Woodcutting", "axe.png", xx+=32+32, 10));
+	add(new Skill(SkillEnum::MINING, "Mining", "pickaxe.png", 430/2-64/2, 30));
+	add(new Skill(SkillEnum::FISHING, "Fishing", "fishing_rod.png", 30, 320-150));
+	add(new Skill(SkillEnum::WOODCUTTING, "Woodcutting", "axe.png", 430-64-30, 320-150));
 	#undef add
 }

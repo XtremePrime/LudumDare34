@@ -19,7 +19,7 @@ private:
 	sf::Text text;
 	sf::Font font;
 	Button button;
-	const int size = 32;
+	const int size = 64;
 	int x, y;
 	SkillEnum type;
 public:
@@ -37,7 +37,9 @@ public:
 		sprite.setTexture(txr);
 		this->x = x;
 		this->y = y;
+		sprite.setScale(size / sprite.getLocalBounds().width, size / sprite.getLocalBounds().height);
 		sprite.setPosition(sf::Vector2f(x, y));
+
 
         font.loadFromFile("res/fonts/runescape_uf.ttf");
         text.setFont(font);
@@ -47,7 +49,7 @@ public:
 
     	sf::FloatRect fr = text.getLocalBounds();
 		text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
-		text.setPosition(sf::Vector2f(x+16, y+32+10));
+		text.setPosition(sf::Vector2f(x+64/2, y+64+10));
 
 		button.init(x, y, size, size);
 	}

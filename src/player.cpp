@@ -33,7 +33,7 @@ void Player::calculate_total(){
 	//- Calculate LVL
 	add2(SkillEnum::MINING);
 	add2(SkillEnum::FISHING);
-	add2(SkillEnum::FISHING);
+	add2(SkillEnum::WOODCUTTING);
 
 	#undef add2
 	#undef add

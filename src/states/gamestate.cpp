@@ -19,8 +19,38 @@ void GameState::init(Game* game)
 
 	xp = game->get_gameobject()->resource->get_xp();
 	resource_name = game->get_gameobject()->resource->get_name();
+	skill_type = game->get_gameobject()->skill->get_type();
 
 	button.init(0, 0, game->get_width(), game->get_height());
+
+
+	res_text.setFont(game->get_font());
+	res_text.setCharacterSize(15);
+	res_text.setColor(sf::Color::White);
+	stats_text.setFont(game->get_font());
+	stats_text.setCharacterSize(15);
+	stats_text.setColor(sf::Color::White);
+
+	std::stringstream ss;
+	ss << "Resource Name: " << resource_name;
+	res_text.setString(ss.str());
+	std::stringstream ss2;
+	ss2 << game->get_gameobject()->skill->get_name() << " Exp: " << player->get_xp(skill_type) << " / Lvl: " << player->get_lvl(skill_type);
+	stats_text.setString(ss2.str());
+	{
+		sf::FloatRect fr = res_text.getLocalBounds();
+		res_text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
+		res_text.setPosition(sf::Vector2f(game->get_width()/2, game->get_height()-10));
+	}
+	{
+		sf::FloatRect fr = stats_text.getLocalBounds();
+		stats_text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
+		stats_text.setPosition(sf::Vector2f(game->get_width()/2, game->get_height()-30));
+	}
+
+	//- Init sound
+	bfr.loadFromFile("res/sfx/action.wav");
+	snd.setBuffer(bfr);
 }
 
 
@@ -51,6 +81,8 @@ void GameState::handle_events(Game* game, sf::Event event)
             sf::Vector2f pos = game->get_window()->mapPixelToCoords(pixelPos);
 
 			//- Give player xp
+			snd.stop();
+			snd.play();
 			player->add_xp(game->get_gameobject()->chosen_skill, resource->get_xp());
 			std::cout << player->get_xp(game->get_gameobject()->chosen_skill) << "\n";
 
@@ -69,6 +101,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 				notifications.push_back(new Notification(ss.str(), game->get_width()/2, 25, 40, sf::Color(200, 0, 0), 1));
 			}
 			player->calculate_total();
+			game->get_save().save_file(*player);
 		}
 		else if(event.mouseButton.button == sf::Mouse::Right)
 		{
@@ -89,6 +122,23 @@ void GameState::update(Game* game,  sf::Time deltaTime)
 				notifications.erase(notifications.begin()+i);
 		}
 	}
+
+	std::stringstream ss;
+	ss << "Resource Name: " << resource_name;
+	res_text.setString(ss.str());
+	std::stringstream ss2;
+	ss2 << game->get_gameobject()->skill->get_name() << " Exp: " << player->get_xp(skill_type) << " / Lvl: " << player->get_lvl(skill_type);
+	stats_text.setString(ss2.str());
+	{
+		sf::FloatRect fr = res_text.getLocalBounds();
+		res_text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
+		res_text.setPosition(sf::Vector2f(game->get_width()/2, game->get_height()-30));
+	}
+	{
+		sf::FloatRect fr = stats_text.getLocalBounds();
+		stats_text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
+		stats_text.setPosition(sf::Vector2f(game->get_width()/2, game->get_height()-10));
+	}
 }
 
 
@@ -100,6 +150,9 @@ void GameState::render(Game* game)
 		for(Notification* n : notifications)
 			n->render(game->get_window());
 	}
+
+	game->get_window()->draw(res_text);
+	game->get_window()->draw(stats_text);	
 }
 
 
