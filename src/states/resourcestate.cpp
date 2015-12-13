@@ -145,13 +145,13 @@ void ResourceState::init_resources(SkillEnum chosen_skill)
 	switch(chosen_skill)
 	{
 		case SkillEnum::MINING:{
-		add(n("Copper Ore", 1, 17.5, "null.png", "null.png", 10, 10));
-		add(n("Iron Ore", 15, 35, "null.png", "null.png", 10, 10));
-		add(n("Silver Ore", 20, 55, "null.png", "null.png", 10, 10));
-		add(n("Gold Ore", 40, 85, "null.png", "null.png", 10, 10));
-		add(n("Mithril Ore", 55, 150, "null.png", "null.png", 10, 10));
-		add(n("Adamantite Ore", 70, 300, "null.png", "null.png", 10, 10));
-		add(n("Titanium Ore", 80, 555.5, "null.png", "null.png", 10, 10));
+		add(n("Copper Ore", 1, 17.5, "null.png", "null.png", 20, 20));
+		add(n("Iron Ore", 15, 35, "null.png", "null.png", 420/2-16, 20));
+		add(n("Silver Ore", 20, 55, "null.png", "null.png", 420-32-20, 20));
+		add(n("Gold Ore", 40, 85, "null.png", "null.png", 20, 32+70));
+		add(n("Mithril Ore", 55, 150, "null.png", "null.png", 420/2-16, 32+70));
+		add(n("Adamantite Ore", 70, 300, "null.png", "null.png", 420-32-20, 32+70));
+		add(n("Titanium Ore", 80, 555.5, "null.png", "null.png", 420/2-16, 32+150));
 		}break;
 
 		case SkillEnum::FISHING:{
@@ -167,11 +167,11 @@ void ResourceState::init_resources(SkillEnum chosen_skill)
 
 		case SkillEnum::WOODCUTTING:{
 		int xx = 10, yy = 10;
-		add(n("Tree", 1, 1, "null.png", "null.png", 10, 10));
-		add(n("Evergreen", 1, 1, "null.png", "null.png", 10, 10));
-		add(n("Oak", 1, 1, "null.png", "null.png", 10, 10));
-		add(n("Maple", 1, 1, "null.png", "null.png", 10, 10));
-		add(n("Yew", 1, 1, "null.png", "null.png", 10, 10));
+		add(n("Tree", 1, 1, "null.png", "null.png", 20, 20));
+		add(n("Evergreen", 1, 1, "null.png", "null.png", 420/2-16, 20));
+		add(n("Oak", 1, 1, "null.png", "null.png", 420-32-20, 20));
+		add(n("Maple", 1, 1, "null.png", "null.png", 20, 32+70));
+		add(n("Yew", 1, 1, "null.png", "null.png", 420/2-16, 32+70));
 		}break;
 	}
 }
