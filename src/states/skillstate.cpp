@@ -74,6 +74,18 @@ void SkillState::handle_events(Game* game, sf::Event event)
 				{
 					game->get_gameobject()->chosen_skill = skills[i]->get_type();
 					game->get_gameobject()->skill = skills[i];
+					switch(game->get_gameobject()->chosen_skill)
+					{
+						case SkillEnum::MINING:
+							game->get_gameobject()->background_name = "mining.png";
+						break;
+						case SkillEnum::FISHING:
+							game->get_gameobject()->background_name = "fishing.png";
+						break;
+						case SkillEnum::WOODCUTTING:
+							game->get_gameobject()->background_name = "woodcutting.png";
+						break;
+					}
 					std::cout << "Clicked skill " << i << "!\n";
 					game->push_state(ResourceState::instance());
 					break;

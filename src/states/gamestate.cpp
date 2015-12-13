@@ -23,6 +23,10 @@ void GameState::init(Game* game)
 
 	button.init(0, 0, game->get_width(), game->get_height());
 
+	//- BG
+	bg_txr.loadFromFile("res/background/"+game->get_gameobject()->background_name);
+	bg.setTexture(bg_txr);
+	bg.setPosition(sf::Vector2f(0, 0));
 
 	res_text.setFont(game->get_font());
 	res_text.setCharacterSize(15);
@@ -114,12 +118,12 @@ void GameState::update(Game* game,  sf::Time deltaTime)
 {
 	if(notifications.size() > 0)
 	{
-		for(Notification* n : notifications){
-			n->update(deltaTime);
-		}
 		for(int i = 0; i < notifications.size(); ++i){
 			if(notifications[i]->is_dead())
 				notifications.erase(notifications.begin()+i);
+		}
+		for(Notification* n : notifications){
+			n->update(deltaTime);
 		}
 	}
 
@@ -144,6 +148,7 @@ void GameState::update(Game* game,  sf::Time deltaTime)
 
 void GameState::render(Game* game)
 {
+	game->get_window()->draw(bg);
 	resource->get_source().render(game->get_window());
 	if(notifications.size() > 0)
 	{

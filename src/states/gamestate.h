@@ -30,6 +30,8 @@ private:
     sf::Text stats_text;
 
     std::vector<Notification*> notifications;
+
+    sf::Texture bg_txr; sf::Sprite bg;
 protected:
 	static GameState* _instance;
 	GameState(){}

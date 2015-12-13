@@ -145,17 +145,33 @@ void ResourceState::init_resources(SkillEnum chosen_skill)
 	switch(chosen_skill)
 	{
 		case SkillEnum::MINING:{
-		add(new Resource("Copper", 5, 1, "null.png", "tree_0.png", 10, 10));
+		add(n("Copper Ore", 1, 17.5, "null.png", "null.png", 10, 10));
+		add(n("Iron Ore", 15, 35, "null.png", "null.png", 10, 10));
+		add(n("Silver Ore", 20, 55, "null.png", "null.png", 10, 10));
+		add(n("Gold Ore", 40, 85, "null.png", "null.png", 10, 10));
+		add(n("Mithril Ore", 55, 150, "null.png", "null.png", 10, 10));
+		add(n("Adamantite Ore", 70, 300, "null.png", "null.png", 10, 10));
+		add(n("Titanium Ore", 80, 555.5, "null.png", "null.png", 10, 10));
 		}break;
 
 		case SkillEnum::FISHING:{
-		add(new Resource("Fish", 3.2, 1, "fish_0.png", "fish_0.png", 10, 10));
+		// add(new Resource("Fish", 3.2, 1, "fish_0.png", "fish_0.png", 10, 10));
+		add(n("Dark Fish", 1, 10, "fish_0.png", "fish_0.png", 20, 20));
+		add(n("Leaf Fish", 10, 40, "fish_1.png", "fish_1.png", 420/2-16, 20));
+		add(n("Sun Fish", 15, 55.5, "fish_2.png", "fish_2.png", 420-32-20, 20));
+		add(n("Gold Fish", 30, 70, "fish_3.png", "fish_3.png", 20, 32+70));
+		add(n("Fire Fish", 45, 90, "fish_4.png", "fish_4.png", 420/2-16, 32+70));
+		add(n("Feral Fish", 60, 120, "fish_5.png", "fish_5.png", 420-32-20, 32+70));
+		add(n("God Fish", 75, 555.5, "fish_6.png", "fish_6.png", 420/2-16, 32+150));
 		}break;
 
 		case SkillEnum::WOODCUTTING:{
 		int xx = 10, yy = 10;
-		add(n("Tree", 25, 1, "logs.png", "tree_0.png", xx, yy));
-		add(n("Nevergreen", 25, 5, "logs.png", "cradrea.png", xx+=32+20, yy));
+		add(n("Tree", 1, 1, "null.png", "null.png", 10, 10));
+		add(n("Evergreen", 1, 1, "null.png", "null.png", 10, 10));
+		add(n("Oak", 1, 1, "null.png", "null.png", 10, 10));
+		add(n("Maple", 1, 1, "null.png", "null.png", 10, 10));
+		add(n("Yew", 1, 1, "null.png", "null.png", 10, 10));
 		}break;
 	}
 }

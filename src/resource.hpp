@@ -33,6 +33,7 @@ private:
 	// std::string xp_str;
 	sf::Text name_text;
 	sf::Text given_xp_text;
+	sf::Text lvl_text;
 	sf::Font font;
 	Button button;
 	const int size = 32;
@@ -41,7 +42,7 @@ public:
 	Resource(){}
 	Resource(std::string name="N/A", int req_lvl=1, float xp=1.0, std::string filename="null.png", std::string src_filename="null.png", int x=0, int y=0)
 	{
-		init(name, xp, req_lvl, filename, src_filename, x, y);
+		init(name, req_lvl, xp, filename, src_filename, x, y);
 	}
 
 	void init(std::string name="N/A", int req_lvl=1, float xp=1.0, std::string filename="null.png", std::string src_filename="null.png", int x=0, int y=0)
@@ -66,6 +67,15 @@ public:
         given_xp_text.setString(ss.str());
         given_xp_text.setCharacterSize(15);
         given_xp_text.setColor(sf::Color::Yellow);
+		lvl_text.setFont(font);
+		{
+		std::stringstream ss2;
+		ss2 << "Lvl: " << req_lvl;
+        lvl_text.setString(ss2.str());
+        }
+        lvl_text.setCharacterSize(10);
+        lvl_text.setColor(sf::Color::White);
+
 
     	sf::FloatRect fr = name_text.getLocalBounds();
 		name_text.setOrigin(fr.left + fr.width/2.0f, fr.top  + fr.height/2.0f);
@@ -73,6 +83,11 @@ public:
     	sf::FloatRect fr2 = given_xp_text.getLocalBounds();
 		given_xp_text.setOrigin(fr2.left + fr2.width/2.0f, fr2.top  + fr2.height/2.0f);
 		given_xp_text.setPosition(sf::Vector2f(x+16, y+32+25));
+    	sf::FloatRect fr4 = lvl_text.getLocalBounds();
+		lvl_text.setOrigin(fr4.left + fr4.width/2.0f, fr4.top  + fr4.height/2.0f);
+		lvl_text.setPosition(sf::Vector2f(x+32-2, y+32-2));
+
+
 
 		sf::FloatRect fr3 = src.sprite.getLocalBounds();
 		src.sprite.setOrigin(fr3.left + fr3.width/2.0f, fr3.top  + fr3.height/2.0f);
@@ -86,6 +101,7 @@ public:
 		window->draw(this->sprite);
 		window->draw(this->name_text);
 		window->draw(this->given_xp_text);
+		window->draw(this->lvl_text);
 	}
 
 	Source& get_source(){ return this->src; }

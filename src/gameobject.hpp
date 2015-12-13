@@ -13,6 +13,7 @@ public:
 	Skill* skill;
 	Player player;
 	SkillEnum chosen_skill = SkillEnum::NA;
+	std::string background_name = "fishing.png";
 
 
 	//- Options objects
